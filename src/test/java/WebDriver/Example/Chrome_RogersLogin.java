@@ -45,9 +45,9 @@ public class Chrome_RogersLogin {
 
 		Thread.sleep(1000);
 
-		driver.findElement(By.id("username")).sendKeys("Enter your username");// Enter your user name or email ID
+		driver.findElement(By.id("username")).sendKeys("manvir.singh.parmar@gmail.com");// Enter your user name or email ID
 
-		driver.findElement(By.id("password")).sendKeys("Enter your password"); // Enter your password
+		driver.findElement(By.id("password")).sendKeys("Manvir@1988"); // Enter your password
 
 		driver.findElement(By.xpath("//button[@type='button' and  @data-dtname='signin submit' ]")).click();
 

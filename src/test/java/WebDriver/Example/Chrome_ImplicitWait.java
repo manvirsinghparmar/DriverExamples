@@ -16,9 +16,13 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import junit.framework.Assert;
+
 public class Chrome_ImplicitWait {
 
 	WebDriver driver;
+	
+	WebDriverWait wait; 
 
 	@BeforeClass
 	void Setup() {
@@ -27,45 +31,64 @@ public class Chrome_ImplicitWait {
 
 		driver = new ChromeDriver();
 
-		driver.get("https://www.koodomobile.com/");
+		// Implicit Wait
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
+		wait = new WebDriverWait(driver, 30);
 
 		driver.manage().window().maximize();
-		
-		
-		
-		//Implicit Wait
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+		driver.get("https://www.koodomobile.com/");
 
 	}
 
 	@Test
-	void isSelected() throws InterruptedException {
+	void isSelected() {
 
 		driver.findElement(By.xpath("//a[@href='https://www.koodomobile.com/my-account/overview']")).click();
 
-		Thread.sleep(2500);
+		driver.findElement(By.xpath("//input[@name='IDToken1']")).sendKeys("manvir.singh.parmar@gmail.com");
 
-		driver.findElement(By.xpath("//input[@name='IDToken1']")).sendKeys("Enter your emailID here");
-
-		driver.findElement(By.xpath("//*//input[@name='IDToken2']")).sendKeys("Enter your password");
+		driver.findElement(By.xpath("//*//input[@name='IDToken2']")).sendKeys("Manvir@1988");
 
 		driver.findElement(
 				By.xpath("//button[@class='KDS_Button-modules__primary___2hYEU KDS_Button-modules__button___iH8KX']"))
 				.click();
-
 		
-		//Explicit wait
-		WebDriverWait wait = new WebDriverWait(driver, 30);
 
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class='lch-button color-blue']")));
 		// click on the compose button as soon as the "compose" button is visible
-		driver.findElement(By.xpath("//a[@class='lch-button color-blue']")).click();
+		 int height=driver.findElement(By.xpath("//a[@class='lch-button color-blue']")).getSize().getHeight();
+		 int width=  driver.findElement(By.xpath("//a[@class='lch-button color-blue']")).getSize().getWidth();
+		 System.out.println("The height is: " + height);
+		 System.out.println("The height is: " + width);
+		 
+		 WebElement element=driver.findElement(By.xpath("//a[@class='lch-button color-blue']"));
+		 
+		 driver.navigate().to("https://www.google.com/");
+		 
+		 WebElement elementGoogle=driver.findElement(By.id("hplogo"));
+		 
+		boolean flag=elementGoogle.isDisplayed();
+		
+		Assert.assertTrue(flag);
+		
+		Set<String> windowHandles=driver.getWindowHandles();
+		
+		
+		System.out.println("Window handles are: " + windowHandles);
+		
+		
+		driver.navigate().back();
+		 
+		
+		 
+		 
+		
 	}
 
 	@AfterClass
-	void tearDown() throws InterruptedException {
-
-		Thread.sleep(5000);
+	void tearDown() {
 
 		driver.quit();
 	}

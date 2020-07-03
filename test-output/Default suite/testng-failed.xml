@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="WebDriver.Example.Firefox_VisibilityConditions_isDisplayed">
+      <class name="WebDriver.Example.SeleniumGridSetupTrial">
         <methods>
-          <include name="tearDown"/>
-          <include name="isDisplayed"/>
           <include name="Setup"/>
+          <include name="getTitle"/>
+          <include name="closeBrowser"/>
         </methods>
-      </class> <!-- WebDriver.Example.Firefox_VisibilityConditions_isDisplayed -->
+      </class> <!-- WebDriver.Example.SeleniumGridSetupTrial -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

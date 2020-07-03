@@ -9,12 +9,16 @@ import java.sql.Statement;
 
 public class JdbcConnection {
 
-	public static void main(String[] args) throws SQLException  {
-		
-		
+	public static void main(String[] args) throws SQLException {
+
 		Connection connection;
 
-		connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "hr", "Enter your Password");// Enter your Oracle SQL server password
+		connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "hr", "Manvir1988");// Enter
+																												// your
+																												// Oracle
+																												// SQL
+																												// server
+																												// password
 
 		Statement statement = connection.createStatement();
 
@@ -23,19 +27,16 @@ public class JdbcConnection {
 		ResultSet result;
 
 		result = statement.executeQuery(query);
-		
-		while(result.next()) {
-			
-			String email= result.getString("signUpEmail");
-			
+
+		while (result.next()) {
+
+			String email = result.getString("signUpEmail");
+
 			System.out.println(email);
-			
-			
+
 		}
 
-		
 		connection.close();
 
-	
 	}
 }
