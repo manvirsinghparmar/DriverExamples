@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="WebDriver.Example.SeleniumGridSetupTrial">
+      <class name="WebDriver.Example.Check_All_Links">
         <methods>
-          <include name="Setup"/>
-          <include name="getTitle"/>
-          <include name="closeBrowser"/>
+          <include name="checkAllLinks"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
         </methods>
-      </class> <!-- WebDriver.Example.SeleniumGridSetupTrial -->
+      </class> <!-- WebDriver.Example.Check_All_Links -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
