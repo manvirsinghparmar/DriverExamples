@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="WebDriver.Example.Check_All_Links">
+      <class name="WebDriver.Example.FluentWait">
         <methods>
-          <include name="checkAllLinks"/>
+          <include name="fluentWait"/>
           <include name="tearDown"/>
-          <include name="setup"/>
+          <include name="Setup"/>
         </methods>
-      </class> <!-- WebDriver.Example.Check_All_Links -->
+      </class> <!-- WebDriver.Example.FluentWait -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

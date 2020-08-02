@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="classes">
-  <test thread-count="5" name="Test(failed)" parallel="classes">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <listeners>
+    <listener class-name="WebDriver.Example.TransformerForRetry"/>
+  </listeners>
+  <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="WebDriver.Example.Docker_Firefox">
+      <class name="WebDriver.Example.FluentWait">
         <methods>
-          <include name="test1"/>
+          <include name="fluentWait"/>
+          <include name="tearDown"/>
+          <include name="Setup"/>
         </methods>
-      </class> <!-- WebDriver.Example.Docker_Firefox -->
-      <class name="WebDriver.Example.Docker_chrome">
-        <methods>
-          <include name="test1"/>
-        </methods>
-      </class> <!-- WebDriver.Example.Docker_chrome -->
+      </class> <!-- WebDriver.Example.FluentWait -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
